@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>PH Tube</title>
+  </head>
+  <body>
+    <header class="container mx-auto my-12">
+      <nav class="flex flex-col-1 md:flex-row lg:col-3 justify-between p-5">
+        <!-- img -->
+        <div>
+          <img src="./86-PHero-tube/Logo.png" alt="" />
+        </div>
+        <!-- sort btn -->
+        <div>
+          <button class="btn btn-active btn-ghost rounded">Sort by view</button>
+        </div>
+        <!-- blog -->
+        <div>
+          <button class="btn btn-error bg-[#FF1F3D] rounded text-white">
+            Blog
+          </button>
+        </div>
+      </nav>
+    </header>
+    <hr />
+    <main>
+      <!-- tabs start-->
+      <div class="tab-container">
+        <div
+          class="tabs tabs p-5 m-auto text-center flex justify-center"
+          id="tab-container"
+        ></div>
+      </div>
+      <!-- tabs end -->
+    </main>
+    <script src="./function.js"></script>
+  </body>
+</html>
