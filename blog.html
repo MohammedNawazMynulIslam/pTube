@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blog</title>
+  </head>
+  <body class="bg-black text-white">
+    <header>
+      <h2 class="text-center font-bold text-9xl my-5">QNA</h2>
+    </header>
+    <hr />
+    <main>
+      <h2 class="text-left p-5 my-5 text-xl">
+        Question 1: Discuss the scope of var, let, and const
+      </h2>
+      <p id="q-1" class="p-5 text-xl">
+        Ans: Let and const both of them are block-scope. They can only use
+        within the block they are defined. Both of them provide maintainability
+        and bebugging which is an advantage over var. Var dont have block scope.
+        Var is either function-scoped or global scope which can result in
+        unexpected behavior.
+      </p>
+
+      <h2 class="text-left p-5 my-5 text-xl">
+        Question 2: Tell us the use cases of null and undefined
+      </h2>
+      <p id="q-2" class="p-5 text-xl">
+        Ans: When a variable dont have value undefined is used such as
+        uninitialized variables or missing function parameter. Null is used to
+        show that a variable or attribute has no value on purpose. So we have
+        use undefined and null property with care to avoid any error in the code
+      </p>
+
+      <h2 class="text-left p-5 my-5 text-xl">
+        Question 3: What do you mean by REST API?
+      </h2>
+      <p id="q-3" class="p-5 text-xl">
+        Ans: A collection of guidelines for creating and utilizing web services
+        is known as a REST API. It makes use of conventional HTTP techniques
+        like GET and POST to access and change web resources. It maintains to
+        status and standard interface ideas for reliable and scalable
+        application communication.
+      </p>
+    </main>
+    <script src="ans.js"></script>
+  </body>
+</html>

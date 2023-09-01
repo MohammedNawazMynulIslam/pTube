@@ -2,12 +2,12 @@ const handleLoadCategory = async ()=>{
     const res = await fetch('https://openapi.programming-hero.com/api/videos/categories')
     const data = await res.json();
 
-
-
     const tabContainer = document.getElementById('tab-container');
 
-    data.data.slice(0,4).forEach((category)=>{
+    data.data.forEach((category)=>{
+      // console.log(data.data)
         const div = document.createElement("div");
+
         div.innerHTML =`
         <a onclick="handleLoadMedia('${category.category_id}')"
         class="tab">${category.category}</a>
@@ -29,10 +29,18 @@ const hourMin =(mins)=>{
             `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
         );
         const data = await res.json();
-
+        console.log(data.data )
         const cardContainer = document.getElementById("card-container")
+        cardContainer.textContent = '';
+        if(data.data.length === 0 ){
+        const div = document.createElement('div')
+        div.classList = 'hidden';
+
+        cardContainer.append(div)
+      }else{
+
         data.data.forEach((media)=>{
-            console.log(media)
+
             const div = document.createElement('div')
             div.innerHTML = `
             <div class="card bg-base-100 shadow-xl">
@@ -80,4 +88,5 @@ const hourMin =(mins)=>{
 
         });
 };
+    }
 handleLoadCategory ()
