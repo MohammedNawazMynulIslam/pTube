@@ -1,8 +1,10 @@
 const handleLoadCategory = async ()=>{
+
     const res = await fetch('https://openapi.programming-hero.com/api/videos/categories')
     const data = await res.json();
 
     const tabContainer = document.getElementById('tab-container');
+
 
     data.data.forEach((category)=>{
       // console.log(data.data)
@@ -14,6 +16,8 @@ const handleLoadCategory = async ()=>{
         `;
         tabContainer.appendChild(div)
     });
+    handleLoadMedia('1000')
+
 };
 const hourMin =(mins)=>{
   if(mins){
@@ -32,14 +36,21 @@ const hourMin =(mins)=>{
         console.log(data.data )
         const cardContainer = document.getElementById("card-container")
         cardContainer.textContent = '';
-        if(data.data.length === 0 ){
-        const div = document.createElement('div')
-        div.classList = 'hidden';
 
-        cardContainer.append(div)
-      }else{
 
         data.data.forEach((media)=>{
+          if(data.data.length <= 0 ){
+            const divCon = document.getElementById('divCon')
+            const div = document.createElement('div')
+            div.innerHTML =`
+            <!-- <img class="mx-auto" src="./86-PHero-tube/Icon.png" alt="" />
+        <p class="text-center font-bold text-4xl">
+          Oops!! Sorry, There is no content here
+        </p> -->`
+
+            cardContainer.append(div)
+          }else{
+          };
 
             const div = document.createElement('div')
             div.innerHTML = `
@@ -83,10 +94,7 @@ const hourMin =(mins)=>{
           </div>
         </div>
             `;
-
-            cardContainer.appendChild(div)
-
+            cardContainer.appendChild(div);
         });
-};
     }
-handleLoadCategory ()
+handleLoadCategory ();
