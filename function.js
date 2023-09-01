@@ -7,7 +7,7 @@ const handleLoadCategory = async ()=>{
 
 
     data.data.forEach((category)=>{
-      // console.log(data.data)
+
         const div = document.createElement("div");
 
         div.innerHTML =`
@@ -33,25 +33,25 @@ const hourMin =(mins)=>{
             `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
         );
         const data = await res.json();
-        console.log(data.data )
+        console.log(data.data)
         const cardContainer = document.getElementById("card-container")
         cardContainer.textContent = '';
 
+        if(data.data.length === 0){
+          // console.log(data.data.length)
+         const divCon = document.getElementById('divCont')
+         divCon.classList.remove('hidden');
+         divCon.innerHTML = `
+         <img class="mx-auto" src="./86-PHero-tube/Icon.png" alt="" />
+      <p class="text-center font-bold text-4xl">
+        Oops!! Sorry, There is no content here
+      </p>
+         `;
+        cardContainer.appendChild(divCon)
+        }
 
+        else{
         data.data.forEach((media)=>{
-          if(data.data.length <= 0 ){
-            const divCon = document.getElementById('divCon')
-            const div = document.createElement('div')
-            div.innerHTML =`
-            <!-- <img class="mx-auto" src="./86-PHero-tube/Icon.png" alt="" />
-        <p class="text-center font-bold text-4xl">
-          Oops!! Sorry, There is no content here
-        </p> -->`
-
-            cardContainer.append(div)
-          }else{
-          };
-
             const div = document.createElement('div')
             div.innerHTML = `
             <div class="card bg-base-100 shadow-xl">
@@ -96,5 +96,9 @@ const hourMin =(mins)=>{
             `;
             cardContainer.appendChild(div);
         });
+
+      }
+
+
     }
 handleLoadCategory ();
